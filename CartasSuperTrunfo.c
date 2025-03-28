@@ -5,14 +5,15 @@ int main() {
     char estado1;                            //area de declaraçoes de variaveis
     char estado2;                            //cada carta tera suas proprias variaveis, cada uma contendo seus respectivos dados
     char cidade1[50], cidade2[50];
-    int populacao1, populacao2, Pturistico1, Pturistico2;
-    float area1, area2, PIB1, PIB2;
+    int populacao1, populacao2, Pturistico1, Pturistico2;                        //variaveis tipo inteiro  solicitado pelo desafio nivel NOVATO
+    float area1, area2, PIB1, PIB2;                                              //variaveis tipo float solicitado no nivel NOVATO
     float DensidadeP1, DensidadeP2, pibPerCapita1, pibPerCapita2;                //novas variaveis implementadas para o novo  nivel DESAFIO AVENTUREIRO  
+    float pibBilhao1, pibBilhao2;                                                //variaveis para converter PIB  em Bilhao
     
     printf ("--------------------------------------------------------\n");       //cabeçalho de inicializaçao (apenas estetico)
     printf ("       Bem Vindo ao Jogo Super Trunfo\n");
     printf ("--------------------------------------------------------\n");
-    printf ("    \n");                                                           //imprimir uma linha em branco (apenas estetico)
+    printf ("    \n");                                                           //imprimir uma linha em branco/vazio (apenas estetico)
     printf ("Vamos comecar cadastrando a primeira carta!!!\n");
     printf ("informe uma letra que represente um Estado: ");                    //o codigo começa a pedir dados do usuario
     scanf ("%c", &estado1);                                                     //cada dado informado é lido e armazenado dentro da variavel respectiva
@@ -47,8 +48,11 @@ int main() {
     DensidadeP1 = (float) populacao1/area1;                                           //variavel declarada recebe o calculo de densidade populacional (numero de habitantes divido por area ocupada)
     DensidadeP2 = (float) populacao2/area2;
 
-    pibPerCapita1  = (float) PIB1/populacao1;                                         //variavel declarada recebe o calculo de PIB per capita (PIB dividido pelo numero de habitantes)
-    pibPerCapita2  = (float) PIB2/populacao2;
+    pibBilhao1 = PIB1*1000000000;                                                     //PIB é convertido para Bilhao para o calculo de PIB per capita 
+    pibBilhao2 = PIB2*1000000000;
+
+    pibPerCapita1  = (float) pibBilhao1/populacao1;                                   //variavel declarada recebe o calculo de PIB per capita (PIB dividido pelo numero de habitantes)
+    pibPerCapita2  = (float) pibBilhao2/populacao2;                                   //o PIB agora convertido paraa bilhao é dividido por um numero inteiro, o  resultado é convertido explicitamente para float
 
     
     printf ("----------------------------------------\n");                    //imprime uma linha (estetico)
@@ -57,28 +61,23 @@ int main() {
     printf ("CODIGO: %c 01\n", estado1);
     printf ("CIDADE: %s\n", cidade1);
     printf ("POPULACAO: %d\n", populacao1);
-    printf ("AREA: %.2f km^2\n", area1);
+    printf ("AREA: %.2f km2\n", area1);
     printf ("PIB: %.2f  Bilhoes de reais\n", PIB1);
     printf ("PONTOS TURISTICOS: %d\n", Pturistico1);
-    printf ("DENSIDADE POPULACIONAL: %.2f hab/km^2\n", DensidadeP1);                     //codigo imprime o resultado do calculo de densidade populacional
-    printf ("PIB PER CAPITA: %.2f reais\n", pibPerCapita1);                           //codigo imprime o resultado do calculo de pib per capita
+    printf ("DENSIDADE POPULACIONAL: %.2f hab/km2\n", DensidadeP1);                     //codigo imprime o resultado do calculo de densidade populacional
+    printf ("PIB PER CAPITA: %.2f reais\n", pibPerCapita1);                             //codigo imprime o resultado do calculo de pib per capita
     
-    printf ("            \n");                                                //pula uma linha (estetico)
-    printf ("CARTA 2:\n" );                                                   //codigo começa a imprimir os dados da segunda carta
+    printf ("            \n");                                                          //imprime uma linha em branco/vazio (estetico)
+    printf ("CARTA 2:\n" );                                                             //codigo começa a imprimir os dados da segunda carta
     printf ("ESTADO: %c\n", estado2);
     printf ("CODIGO: %c 02\n", estado2);
     printf ("CIDADE: %s\n", cidade2);
     printf ("POPULACAO: %d\n", populacao2);
-    printf ("AREA: %.2f km^2\n", area2);
+    printf ("AREA: %.2f km2\n", area2);
     printf ("PIB: %.2f Bilhoes de reais\n", PIB2);
     printf ("PONTOS TURISTICOS: %d\n", Pturistico2);
-    printf ("DENSIDADE POPULACIONAL: %.2f hab/km^2\n", DensidadeP2);
+    printf ("DENSIDADE POPULACIONAL: %.2f hab/km2\n", DensidadeP2);
     printf ("PIB PER CAPTA: %.2f reais\n", pibPerCapita2);
     
     return 0;
-    
-
-
-
-
 }
