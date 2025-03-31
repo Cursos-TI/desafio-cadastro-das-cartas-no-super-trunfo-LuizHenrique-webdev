@@ -9,6 +9,9 @@ int main() {
     float area1, area2, PIB1, PIB2;                                              //variaveis tipo float solicitado no nivel NOVATO
     float DensidadeP1, DensidadeP2, pibPerCapita1, pibPerCapita2;                //novas variaveis implementadas para o novo  nivel DESAFIO AVENTUREIRO  
     float pibBilhao1, pibBilhao2;                                                //variaveis para converter PIB  em Bilhao
+
+    long double SuperPoderC1, SuperPoderC2;                                      //variaveis para armazenar o calculo do super poder
+
     
     printf ("--------------------------------------------------------\n");       //cabeçalho de inicializaçao (apenas estetico)
     printf ("       Bem Vindo ao Jogo Super Trunfo\n");
@@ -78,6 +81,21 @@ int main() {
     printf ("PONTOS TURISTICOS: %d\n", Pturistico2);
     printf ("DENSIDADE POPULACIONAL: %.2f hab/km2\n", DensidadeP2);
     printf ("PIB PER CAPTA: %.2f reais\n", pibPerCapita2);
+
+    SuperPoderC1 = (float) populacao1+PIB1+area1+Pturistico1+pibPerCapita1+(1/DensidadeP1); //calculo do  super poder
+    SuperPoderC2 = (float) populacao2+PIB2+area2+Pturistico2+pibPerCapita2+(1/DensidadeP2); //conversao explicita para float para evitar problemas com calculos envolvendo int e float
+
+    printf ("   \n");            //imprimir uma linha em branco/vazio(estetico)
+    printf ("resultado\n");      //codigo imprimira os resultados das comparações exigidos no Desafio NIVEL MESTRE
+    printf ("Populaçao: CARTA 1 VENCEU?: %d\n", populacao1 > populacao2);
+    printf ("Area: CARTA 1 VENCEU?: %d\n", area1 > area2);
+    printf ("PIB: CARTA1 VENCEU?: %d\n", PIB1 > PIB2);
+    printf ("Pontos Turisticos: CARTA 1 VENCEU?: %d\n", Pturistico1>Pturistico2);
+    printf ("Densidade Populacional: CARTA 1 VENCEU?: %d\n",  DensidadeP1<DensidadeP2);
+    printf ("Super Poder: CARTA 1 VENCEU?: %d\n", SuperPoderC1>SuperPoderC2);
+
     
     return 0;
+
+
 }
