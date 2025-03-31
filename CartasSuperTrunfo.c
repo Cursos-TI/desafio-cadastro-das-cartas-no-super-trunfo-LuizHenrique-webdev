@@ -94,6 +94,17 @@ int main() {
     printf ("Densidade Populacional: CARTA 1 VENCEU?: %d\n",  DensidadeP1<DensidadeP2);
     printf ("Super Poder: CARTA 1 VENCEU?: %d\n", SuperPoderC1>SuperPoderC2);
 
+    printf("------------------------------------\n");
+    printf("comparando a populaçao das duas cartas\n");
+    printf("carta 1- %s : %d\n", cidade1,  populacao1);
+    printf("carta 2- %s : %d\n", cidade2, populacao2);
+    if (populacao1>populacao2) {
+        printf("carta 1 venceu!! porque tem a populaçao maior que carta 2 \n");             //se a população da carta  1  for maior que a carta 2,  aparecera carta 1 como vencedor
+    }else{
+        printf("carta 2 venceu!!! porque tem a populaçao maior que a carta 1\n");          //se a população da carta  2  for maior que a carta 1,  aparecera carta 2 como vencedor
+    }
+    
+
     
     return 0;
 
