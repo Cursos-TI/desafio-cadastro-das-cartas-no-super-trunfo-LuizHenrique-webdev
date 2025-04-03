@@ -12,7 +12,8 @@ int main() {
     float pibBilhao1, pibBilhao2;                                                //variaveis para converter PIB  em Bilhao
 
     long double SuperPoderC1, SuperPoderC2;                                      //variaveis para armazenar o calculo do super poder
-    int  EscolhaMenu;
+    int  EscolhaMenu, resultado1, resultado2;
+    char menu2;
     
     printf ("--------------------------------------------------------\n");       //cabeçalho de inicializaçao (apenas estetico)
     printf ("       Bem Vindo ao Jogo Super Trunfo\n");
@@ -110,8 +111,7 @@ int main() {
     printf("1- população\n 2- Area\n 3- PIB\n 4- Quantidade de pontos turisticos\n 5- Densidade populacional\n 6- PIB per capita\n ");     //menu de opçoes
     scanf("%d", &EscolhaMenu);           //lê  a opçao escolhida pelo usuario
 
-    printf("o nome das duas cidades é: %s e %s\n", cidade1, cidade2);               //escreve na tela o nome das cidades a serem comparadas //fora do switch pois é algo que vai acontecer em todos os casos
-
+    printf("o nome das duas cidades é: %s e %s\n", cidade1, cidade2);               //escreve na tela o nome das cidades a serem comparadas
     switch (EscolhaMenu){                                                           //inicia a escolha do usuario no menu 
     case 1: 
     printf("o atributo de comparação  é: POPULAÇÃO\n");                             //informa o atributo escolhido
@@ -185,6 +185,87 @@ int main() {
     printf("opçao invalida\n");
         break;
     }
+
+    printf ("---------------------------\n");                           //escreve uma linha na tela (estetico)
+     printf (" Vamos fazer um combate de 2 movimentos\n");             
+     printf ("escolha sua primeira comparação\n");
+     printf("A- população\n B- Area\n C- PIB\n D- Quantidade de pontos turisticos\n E- Densidade populacional\n F- PIB per capita\n "); // menu de escolha
+     scanf("%s", &menu2);  // lê a escolha do usuario //dessa vez em char apenas para treinar, mas poderia ser int assim como no  primeiro switch
+     
+     switch (menu2){
+                                                    //logica: se carta 1 vencer a comparação é atribuido  o valor 1, caso contrario 0
+         case 'A': case 'a':                        //usuario pode escolher digitar em Maiusculo ou minusculo
+         resultado1= populacao1>populacao2 ? 1 : 0; // operador ternario atribui 1 ou 0 para resultado, dependendo da situação verdadeiro ou falso
+         break;                                     
+         
+         case 'B': case 'b':
+         resultado1= area1>area2 ? 1 : 0;
+         break;
+         
+         case 'C': case 'c':
+         resultado1= PIB1>PIB2 ? 1 : 0; 
+         break;
+         
+         case 'D': case 'd':
+         resultado1= Pturistico1>Pturistico2 ? 1 : 0;
+         break;
+         
+         case 'E': case 'e':
+         resultado1= DensidadeP1<DensidadeP2 ? 1: 0;
+         break;
+         
+         case 'F': case 'f':
+         resultado1 = pibPerCapita1>pibPerCapita2 ? 1 : 0;
+         break;
+         
+         default:
+         printf ("Voce escolheu uma comparação inválida, automaticamente perdeu o primeiro ataque\n");
+         resultado1=0;   
+         break;
+         }
+         
+         printf(" escolha mais um parametro de comparação\n");
+         scanf("%s", &menu2);
+         
+         switch (menu2){
+         
+         case 'A': case 'a':
+         resultado2= populacao1>populacao2 ? 1 : 0;
+         break;
+         
+         case 'B': case 'b':
+         resultado2= area1>area2 ? 1 : 0;
+         break;
+         
+         case 'C': case 'c':
+         resultado2= PIB1>PIB2 ? 1 : 0; 
+         break;
+         
+         case 'D': case 'd':
+         resultado2= Pturistico1>Pturistico2 ? 1 : 0;
+         break;
+         
+         case 'E': case 'e':
+         resultado2 = DensidadeP1<DensidadeP2 ? 1: 0;
+         break;
+         
+         case 'F': case 'f':
+         resultado2 = pibPerCapita1>pibPerCapita2 ? 1 : 0;
+         break;
+         
+         default:
+         printf ("Voce escolheu uma comparação inválida, automaticamente perdeu o segundo ataque\n");
+         resultado2=0;
+         break;
+         }
+         
+         if (resultado1 && resultado2 == 1){                          //se  carta 1 venceu as duas comparações, carta 1 venceu
+         printf ("o vencedor das duas comparações é a carta1!!\n");
+         }else if(resultado1 && resultado2 ==0){                      //se carta 1 perdeu as duas comparaçoes, carta 2 venceu
+         printf ("o vencedor é das duas comparações é a carta2!!\n");
+         }else{                                                       //se carta 1 venceu apenas uma das duas comparaçoes, empate
+             printf ("empate\n");
+         }
 
 
 
